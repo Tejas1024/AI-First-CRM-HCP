@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light; /* Forces browser to render in light mode */
+}
+
 body {
     font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* Force light gray background */
+    color: #111827; /* Force dark text */
 }
