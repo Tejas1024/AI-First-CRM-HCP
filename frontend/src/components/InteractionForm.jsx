@@ -14,7 +14,8 @@ export default function InteractionForm() {
 
   const handleSubmit = async () => {
     try {
-      await axios.post('http://localhost:8000/interactions/', {
+      // CHANGE: Use 127.0.0.1 instead of localhost
+      await axios.post('http://127.0.0.1:8000/interactions/', {
         hcp_name: data.hcpName,
         interaction_type: data.interactionType,
         interaction_date: data.date,

@@ -19,7 +19,8 @@ export default function ChatInterface() {
     setInput('');
 
     try {
-      const res = await axios.post('http://localhost:8000/chat/', {
+      // CHANGE: Use 127.0.0.1 instead of localhost
+      const res = await axios.post('http://127.0.0.1:8000/chat/', {
         message: currentInput,
         history: history.map(h => h.content)
       });
