@@ -1,11 +1,23 @@
-# Environment variables
+# ===================================
+# CRITICAL: API Keys and Secrets
+# ===================================
 .env
 .env.local
+.env.development
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
 
+# Never commit API keys
+**/groq_api_key.txt
+**/api_keys.txt
+**/*secret*
+**/*password*
+
+# ===================================
 # Python
+# ===================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,6 +26,8 @@ __pycache__/
 venv/
 env/
 ENV/
+env.bak/
+venv.bak/
 build/
 develop-eggs/
 dist/
@@ -26,46 +40,147 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+*.manifest
+*.spec
 
-# Node
+# ===================================
+# Node / JavaScript
+# ===================================
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnp
 .pnp.js
+package-lock.json
+yarn.lock
 
+# ===================================
 # Testing
+# ===================================
 coverage/
 .nyc_output
 *.cover
+*.py,cover
 .hypothesis/
 .pytest_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 
-# IDEs
+# ===================================
+# IDEs and Editors
+# ===================================
 .vscode/
 .idea/
 *.swp
 *.swo
+*.swn
 *~
 .DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
 
+# ===================================
 # Database
+# ===================================
 *.db
 *.sqlite
 *.sqlite3
+*.db-journal
 postgres_data/
+mysql_data/
+*.sql.backup
 
+# ===================================
 # Logs
+# ===================================
 logs/
 *.log
+log.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
+# ===================================
 # Docker
+# ===================================
 docker-compose.override.yml
+.dockerignore.local
 
+# ===================================
 # Build files
+# ===================================
 frontend/build/
+frontend/.cache/
 backend/__pycache__/
+backend/.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytype/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ===================================
+# OS Files
+# ===================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===================================
+# Temporary files
+# ===================================
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+.#*
+\#*#
+.*.swp
+.*.swo
+
+# ===================================
+# Certificate and Keys
+# ===================================
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+
+# ===================================
+# Video files (for assignment)
+# ===================================
+# Keep small videos, ignore large ones
+*.mp4
+*.mov
+*.avi
+*.mkv
