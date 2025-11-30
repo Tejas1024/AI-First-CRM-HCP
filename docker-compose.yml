@@ -22,7 +22,7 @@ services:
       - GROQ_API_KEY=${GROQ_API_KEY}
     depends_on:
       - db
-    [cite_start]dns: # Fix for backend network issues [cite: 15]
+    dns: # Fix for backend network issues
       - 8.8.8.8
       - 8.8.4.4
 
