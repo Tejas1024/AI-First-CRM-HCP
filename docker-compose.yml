@@ -19,9 +19,12 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=postgresql://user:password@db/hcp_db
-      - GROQ_API_KEY=${GROQ_API_KEY} # You will pass this when running
+      - GROQ_API_KEY=${GROQ_API_KEY}
     depends_on:
       - db
+    [cite_start]dns: # Fix for backend network issues [cite: 15]
+      - 8.8.8.8
+      - 8.8.4.4
 
   frontend:
     build: ./frontend
@@ -31,6 +34,9 @@ services:
       - VITE_API_URL=http://localhost:8000
     depends_on:
       - backend
+    dns: # Fix for frontend network issues (npm install)
+      - 8.8.8.8
+      - 8.8.4.4
 
 volumes:
   postgres_data:
