@@ -29,7 +29,6 @@ export default function InteractionForm() {
     }
   };
 
-  // Improved Input Styling (Force white background and visible text)
   const inputClass = "mt-1 block w-full rounded-md border-2 border-gray-300 bg-white text-gray-900 py-2 px-3 shadow-sm focus:border-indigo-600 focus:ring-indigo-600 sm:text-sm placeholder-gray-400";
   const labelClass = "block text-sm font-bold text-gray-800 mb-1";
 
@@ -37,7 +36,6 @@ export default function InteractionForm() {
     <div className="w-2/3 h-screen overflow-y-auto bg-gray-50 font-inter border-r border-gray-300">
       <div className="max-w-4xl mx-auto py-10 px-8">
         
-        {/* Header Section */}
         <div className="mb-8">
             <h1 className="text-3xl font-extrabold text-indigo-900">Log HCP Interaction</h1>
             <p className="text-gray-600 mt-2">Enter the details of your field visit or meeting below.</p>
@@ -46,7 +44,6 @@ export default function InteractionForm() {
         <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
           <div className="p-8 space-y-8">
             
-            {/* Row 1: Name & Type */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <label className={labelClass}>HCP Name</label>
@@ -73,7 +70,6 @@ export default function InteractionForm() {
               </div>
             </div>
 
-            {/* Row 2: Topics */}
             <div>
                 <label className={labelClass}>Topics Discussed</label>
                 <textarea 
@@ -85,9 +81,8 @@ export default function InteractionForm() {
                 />
             </div>
 
-            {/* Row 3: Sentiment */}
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                [cite_start]<label className={labelClass}>Observed Sentiment [cite: 43]</label>
+                <label className={labelClass}>Observed Sentiment</label>
                 <div className="flex gap-6 mt-2">
                     {['Positive', 'Neutral', 'Negative'].map((sent) => (
                         <label key={sent} className="flex items-center space-x-3 cursor-pointer">
@@ -104,7 +99,6 @@ export default function InteractionForm() {
                 </div>
             </div>
 
-            {/* Row 4: Outcomes */}
             <div>
                 <label className={labelClass}>Outcomes & Next Steps</label>
                 <textarea 
@@ -117,7 +111,6 @@ export default function InteractionForm() {
             </div>
           </div>
           
-          {/* Footer Button */}
           <div className="bg-gray-100 px-8 py-5 border-t border-gray-200">
             <button 
                 onClick={handleSubmit}

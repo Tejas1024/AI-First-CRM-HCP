@@ -33,7 +33,6 @@ export default function ChatInterface() {
 
   return (
     <div className="w-1/3 bg-white flex flex-col h-screen font-inter shadow-xl z-10">
-      {/* Header */}
       <div className="p-4 border-b border-gray-200 flex items-center gap-3 bg-white">
         <div className="bg-indigo-100 p-2 rounded-full">
             <Bot className="text-indigo-600 w-6 h-6" />
@@ -47,10 +46,9 @@ export default function ChatInterface() {
         </div>
       </div>
 
-      {/* Chat Area */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
         <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 text-sm text-indigo-900 shadow-sm">
-           [cite_start]<strong>💡 Tip:</strong> You can say "I met Dr. Smith today and we discussed Product X." I will auto-fill the form for you! [cite: 29]
+           <strong>💡 Tip:</strong> You can say "I met Dr. Smith today and we discussed Product X." I will auto-fill the form for you!
         </div>
         
         {history.map((msg, idx) => (
@@ -78,7 +76,6 @@ export default function ChatInterface() {
         )}
       </div>
 
-      {/* Input Area */}
       <div className="p-4 border-t border-gray-200 bg-white">
         <div className="relative">
             <input 
