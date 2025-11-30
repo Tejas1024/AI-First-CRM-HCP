@@ -5,11 +5,12 @@ const interactionSlice = createSlice({
   initialState: {
     hcpName: '',
     interactionType: 'Meeting',
-    date: new Date().toISOString().split('T')[0],
+    date: new Date().toISOString().split('T')[0], // Default to today
     time: '12:00',
     attendees: '',
     topics: '',
     materials: '',
+    samples: '', // Added [cite: 47]
     sentiment: 'Neutral',
     outcomes: '',
     followUp: '',

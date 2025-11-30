@@ -15,13 +15,18 @@ class Interaction(Base):
     id = Column(Integer, primary_key=True, index=True)
     hcp_name = Column(String, index=True)
     interaction_type = Column(String)
-    date_time = Column(DateTime, default=datetime.utcnow)
+    # Changed to string to store exact input from form (e.g., "2025-04-19")
+    interaction_date = Column(String) 
+    interaction_time = Column(String)
     attendees = Column(String)
     topics_discussed = Column(Text)
     materials_shared = Column(String)
-    sentiment = Column(String) # Positive, Neutral, Negative
+    samples_distributed = Column(String) # Added per PDF [cite: 47]
+    sentiment = Column(String) 
     outcomes = Column(Text)
     follow_up_actions = Column(Text)
+    # Store AI suggestions if needed, or just generate them on the fly
+    ai_suggestions = Column(Text, nullable=True)
 
 def init_db():
     Base.metadata.create_all(bind=engine)

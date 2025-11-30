@@ -7,7 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Enable CORS for React
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,18 +15,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize DB on startup
 @app.on_event("startup")
 def on_startup():
     init_db()
 
-# --- Pydantic Models ---
+# Updated Model to match PDF Fields
 class InteractionCreate(BaseModel):
     hcp_name: str
     interaction_type: str
-    attendees: Optional[str]
+    interaction_date: str     # Added [cite: 38]
+    interaction_time: str     # Added [cite: 39]
+    attendees: Optional[str]  # Added [cite: 41]
     topics_discussed: str
-    materials_shared: Optional[str]
+    materials_shared: Optional[str]    # Added [cite: 46]
+    samples_distributed: Optional[str] # Added [cite: 47]
     sentiment: str
     outcomes: Optional[str]
     follow_up_actions: Optional[str]
@@ -35,8 +36,6 @@ class InteractionCreate(BaseModel):
 class ChatRequest(BaseModel):
     message: str
     history: List[str] = []
-
-# --- Routes ---
 
 @app.post("/interactions/")
 def create_interaction(interaction: InteractionCreate):
@@ -57,6 +56,5 @@ def get_interactions():
 
 @app.post("/chat/")
 def chat_with_agent(req: ChatRequest):
-    # This connects the Frontend Chat to the LangGraph Agent [cite: 15]
     response = process_chat(req.message, req.history)
     return {"response": response}
